@@ -19,24 +19,16 @@
 #define Tecla_3 0xED12BF00
 #define Tecla_4 0xEB14BF00
 
-// Constantes
-const int TEMPERATURA_LIMIE = 60;
-const int VERANO_TEMP_LIMITE = 25;
-const int INVIERNO_TEMP_LIMITE = 10;
-const int OTONO_TEMP_LIMITE = 13;
-const int PRIMAVERA_TEMP_LIMITE = 16;
-
 // Variables globales
 IRrecv IR(11); //crea el sensor del IR
 int flag = 1;
-int temperaturaMaxima = 600; //Inicializo en un temp inalcanzable para que no se active
-String estacion = "Configurar-> 1-4"; //mensaje por defecto
+int temperaturaMaxima = 500; //Inicializo
+String estacion = "Estacion-> 1-4";
 Servo servo;
 LiquidCrystal lcd(RS_PIN, EN_PIN, D4_PIN, D5_PIN, D6_PIN, D7_PIN);
 boolean estado_led1 = false;
 boolean estado_led2 = false;
-decode_results irResults;
-int temperaturaAnterior = 0;
+decode_results irResults; //Se utiliza para almacenar los resultados de decodificación
 boolean incendioActivo = false;
 
 void setup()
@@ -50,7 +42,7 @@ void setup()
   
     Serial.begin(9600);
 
-    servo.attach(SERVO_PIN);
+    servo.attach(SERVO_PIN); //Establece una conexión entre el servo motor y el pin del microcontrolador
 }
 void evaluarTemperatura() 
 {
