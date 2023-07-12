@@ -1,5 +1,5 @@
 # Segundo-parcial---SPD
-Sistema de incendio con Arduino
+# Sistema de incendio con Arduino
 Objetivo:
 El objetivo de este proyecto es diseñar un sistema de incendio utilizando Arduino que pueda
 detectar cambios de temperatura y activar un servo motor en caso de detectar un incendio.
